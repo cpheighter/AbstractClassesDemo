@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleUI;
 
 namespace ConsoleUI
 {
@@ -32,19 +33,39 @@ namespace ConsoleUI
             */
 
             // Create a list of Vehicle called vehicles
+            var vehicle = new List<Vehicle>();
 
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * - new it up as one of each derived class
              * Set the properties with object initializer syntax
              */
+            var car = new Car() { HasTrunk = true, Make = "Honda", Model = "CR-V", Year = 2016 };
+            var motorcycle = new Motorcycle() { HasSideCart = false, Make = "Harley-Dividson", Model = "Iron 883", Year = 2022 };
+            
+            Vehicle vehicle1 = new Car() { Year = 2017, Make = "Porsche", Model = "911" };
+            Vehicle vehicle2 = new Motorcycle () { Year = 2019, Make = "Yamaha", Model = "MT-10" };
+
 
             /*
              * Add the 4 vehicles to the list
+             * 
              * Using a foreach loop iterate over each of the properties
              */
+            vehicle.Add(car);
+            vehicle.Add(motorcycle);
+            vehicle.Add(vehicle1);
+            vehicle.Add(vehicle2);
+
+            foreach (var item in vehicle)
+            {
+                Console.WriteLine($"{item.Year} {item.Make} {item.Model}");
+                item.DriveAbstract();
+                Console.WriteLine("--------------------------------");
+            }
 
             // Call each of the drive methods for one car and one motorcycle
+            
 
             #endregion            
             Console.ReadLine();
