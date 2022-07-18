@@ -61,6 +61,7 @@ namespace ConsoleUI
             {
                 Console.WriteLine($"{item.Year} {item.Make} {item.Model}");
                 item.DriveAbstract();
+                item.DriveVirtual();
                 Console.WriteLine("--------------------------------");
             }
 
